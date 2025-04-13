@@ -13,8 +13,27 @@ passwords = ["abc123", "adminpass"]  # Plain passwords (for demo only)
 # Hash passwords for security
 hashed_passwords = stauth.Hasher(passwords).generate()
 
+# Prepare credentials in the expected dictionary format
+credentials = {
+    "usernames": {
+        usernames[0]: {
+            "name": names[0],
+            "password": hashed_passwords[0]
+        },
+        usernames[1]: {
+            "name": names[1],
+            "password": hashed_passwords[1]
+        }
+    }
+}
+
 # Create the authenticator
-authenticator = stauth.Authenticate(names, usernames, hashed_passwords, "expense_app", "abcdef", cookie_expiry_days=1)
+authenticator = stauth.Authenticate(
+    credentials,
+    "expense_app",   # Cookie name
+    "abcdef",        # Signature key
+    cookie_expiry_days=1
+)
 
 # Login
 name, authentication_status, username = authenticator.login("Login", "main")
