@@ -33,7 +33,7 @@ class FamilyExpenseTracker:
 
         member = FamilyMember(name, earning_status, earnings)
         self.members.append(member)
-    
+
     def delete_family_member(self, member):
         self.members.remove(member)
 
@@ -57,9 +57,8 @@ class FamilyExpenseTracker:
         expense = Expense(value, category, description, date)
         self.expense_list.append(expense)
 
-    def delete_expense(self,expense):
+    def delete_expense(self, expense):
         self.expense_list.remove(expense)
-
 
     def merge_similar_category(self, value, category, description, date):
         if value == 0:
