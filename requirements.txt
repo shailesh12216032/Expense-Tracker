@@ -7,4 +7,3 @@ streamlit-option-menu==0.3.6
 requests==2.31.0
 validators==0.22.0
 streamlit-authenticator==0.2.2
-
